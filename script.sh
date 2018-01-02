@@ -1,7 +1,7 @@
 apt install software-properties-gtk -y
 #chrome key
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+#wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+#sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 #spotify key
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -20,10 +20,12 @@ wget -O /etc/apt/sources.list.d/vscode.list https://tagplus5.github.io/vscode-pp
 add-apt-repository ppa:webupd8team/atom
 #libreoffice
 add-apt-repository ppa:libreoffice/ppa
+#grub costumizer
+add-apt-repository ppa:danielrichter2007/grub-customizer
 
-sudo apt-get update
+apt-get update
 
-apt install deluge firefox vlc ubuntu-restricted-extras software-properties-common gnome-system-monitor elementary-tweaks ulauncher spotify-client gimp gparted geany baobab audacity gedit uget lm-sensors psensor indicator-usb indicator-sensors git repo libwebsockets-dev google-chrome-stable telegram code atom snapd libreoffice -y
+apt install deluge firefox vlc ubuntu-restricted-extras software-properties-common gnome-system-monitor elementary-tweaks ulauncher spotify-client gimp gparted geany baobab audacity gedit uget lm-sensors psensor indicator-usb repo libwebsockets-dev telegram code atom snapd grub-customizer-y
 
 sudo apt remove epiphany-browser 
 
@@ -35,7 +37,6 @@ if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 # Add option to ~/.inputrc to enable case-insensitive tab completion
 echo 'set completion-ignore-case On' >> ~/.inputrc
 
-mkdir Projects
 cd Projects
 #dropbox
 git clone https://github.com/zant95/elementary-dropbox.git
